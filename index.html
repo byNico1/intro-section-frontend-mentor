@@ -28,10 +28,81 @@
 <body>
   <header>
     <nav>
-      <img src="./images/logo.svg" alt="Logo">
+      <img class="only-mobile" src="./images/logo.svg" alt="Logo">
+
+      <!-- Desktop info navigation -->
+
+      <div class="nav-info-desktop">
+
+        <img src="./images/logo.svg" alt="Logo">
+
+        <ul class="ul-flex">
+
+          <li class="first-li features">Features
+
+            <span class="arrow-dropdown">
+              <img class="arrow-down" src="./images/icon-arrow-down.svg" alt="" />
+
+              <img class="hidden arrow-up" src="./images/icon-arrow-up.svg" alt="" />
+            </span>
+
+            <ul class="feat-list hidden">
+              <li class="first-li li-icon">
+                <span class="icon-1">
+                  <img src="./images/icon-todo.svg" alt="check icon">
+                </span> Todo List
+              </li>
+
+              <li class="li-icon">
+                <span class="icon-2">
+                  <img src="./images/icon-calendar.svg" alt="">
+                </span> Calendar
+              </li>
+
+              <li class="li-icon">
+                <span class="icon-3">
+                  <img src="./images/icon-reminders.svg" alt="">
+                </span> Reminders
+              </li>
+
+              <li class="li-icon">
+                <span class="icon-4">
+                  <img src="./images/icon-planning.svg" alt=""></span> Planning
+              </li>
+            </ul>
+          </li>
+
+          <li class="company-li">
+            Company
+            <span class="arrow-dropdown-company">
+              <img class="arrow-down-company" src="./images/icon-arrow-down.svg" alt="" />
+
+              <img class="hidden arrow-up-company" src="./images/icon-arrow-up.svg" alt="" />
+            </span>
+
+            <ul class="company-list hidden">
+              <li class="first-li">History</li>
+              <li>Our Team</li>
+              <li>Blog</li>
+            </ul>
+          </li>
+
+          <li class="first-li">Careers</li>
+          <li class="first-li">About</li>
+        </ul>
+
+
+      </div>
+
+      <div class="nav-buttons">
+        <button class="login button-nav">Login</button>
+        <button class="register button-nav">Register</button>
+      </div>
 
       <img class="menu-icon" src="./images/icon-menu.svg" alt="Icon Menu">
     </nav>
+
+    <!-- Mobile Navigation -->
 
     <div class="sidebar show">
       <div class="sidebar-inner-container">
@@ -40,12 +111,12 @@
         </div>
         <div>
           <ul>
-            <li class="first-li">Features <span class="arrow-dropdown">
-                <img class="arrow-down" src="./images/icon-arrow-down.svg" alt="" />
+            <li class="first-li">Features <span class="arrow-dropdown-sidebar">
+                <img class="arrow-down-sidebar" src="./images/icon-arrow-down.svg" alt="" />
 
-                <img class="hidden arrow-up" src="./images/icon-arrow-up.svg" alt="" />
+                <img class="hidden arrow-up-sidebar" src="./images/icon-arrow-up.svg" alt="" />
               </span>
-              <ul class="feat-list hidden">
+              <ul class="feat-list-sidebar hidden">
                 <li class="first-li li-icon">
                   <span class="icon-1">
                     <img src="./images/icon-todo.svg" alt="check icon">
@@ -69,12 +140,12 @@
             </li>
 
             <li>Company
-              <span class="arrow-dropdown-company">
-                <img class="arrow-down-company" src="./images/icon-arrow-down.svg" alt="" />
+              <span class="arrow-dropdown-company-sidebar">
+                <img class="arrow-down-company-sidebar" src="./images/icon-arrow-down.svg" alt="" />
 
-                <img class="hidden arrow-up-company" src="./images/icon-arrow-up.svg" alt="" />
+                <img class="hidden arrow-up-company-sidebar" src="./images/icon-arrow-up.svg" alt="" />
               </span>
-              <ul class="company-list hidden">
+              <ul class="company-list-sidebar hidden">
                 <li class="first-li">History</li>
                 <li>Our Team</li>
                 <li>Blog</li>
@@ -96,31 +167,36 @@
 
   <main class="">
 
-    <div class="main-image-container">
-      <img class="main-image-container__image" src="./images/image-hero-mobile.png" alt="Hero Image">
-    </div>
+    <div class="main-container">
 
-    <div class="hero-text container">
-      <h1 class="hero-text__title">Make remote work</h1>
-      <p class="hero-text__text">
-        Get your team in sync, no matter your location. Streamline processes,
-        create team rituals, and watch productivity soar.
-      </p>
-      <button class="hero-text__button">Learn more</button>
-    </div>
+      <div class="main-image-container">
+        <img class="main-image-container__image" src="./images/image-hero-mobile.png" alt="Hero Image">
 
-    <div class="icons-container container">
-      <div>
-        <img src="./images/client-databiz.svg" alt="icon databiz">
+        <img class="main-image-container__image-dektop" src="./images/image-hero-desktop.png" alt="Hero Image">
       </div>
-      <div>
-        <img src="./images/client-audiophile.svg" alt="icon audiophile">
+
+      <div class="hero-text container">
+        <h1 class="hero-text__title">Make remote work</h1>
+        <p class="hero-text__text">
+          Get your team in sync, no matter your location. Streamline processes,
+          create team rituals, and watch productivity soar.
+        </p>
+        <button class="hero-text__button">Learn more</button>
       </div>
-      <div>
-        <img src="./images/client-meet.svg" alt="icon meet">
-      </div>
-      <div>
-        <img src="./images/client-maker.svg" alt="icon maker">
+
+      <div class="icons-container container">
+        <div>
+          <img src="./images/client-databiz.svg" alt="icon databiz">
+        </div>
+        <div>
+          <img src="./images/client-audiophile.svg" alt="icon audiophile">
+        </div>
+        <div>
+          <img src="./images/client-meet.svg" alt="icon meet">
+        </div>
+        <div>
+          <img src="./images/client-maker.svg" alt="icon maker">
+        </div>
       </div>
 
     </div>
