@@ -1,71 +1,69 @@
-const menuIcon = document.querySelector(".menu-icon");
-const closeMenu = document.querySelector(".close-menu");
-const sidebar = document.querySelector(".sidebar");
 // Desktop
-const arrowDropdown = document.querySelector(".arrow-dropdown");
+
+const menus = document.querySelectorAll(".menu");
+const arrowDownAll = document.querySelectorAll(".arrowdropdown");
+
+const sidebar = document.querySelector(".sidebar");
+
 const arrowDown = document.querySelector(".arrow-down");
 const arrowUp = document.querySelector(".arrow-up");
-const arrowDropdownCompany = document.querySelector(".arrow-dropdown-company");
+
 const arrowDownCompany = document.querySelector(".arrow-down-company");
 const arrowUpCompany = document.querySelector(".arrow-up-company");
 const companyList = document.querySelector(".company-list");
 const featList = document.querySelector(".feat-list");
 
-// Sidebar
-const arrowDropdownSidebar = document.querySelector(".arrow-dropdown-sidebar");
-const arrowDownSidebar = document.querySelector(".arrow-down-sidebar");
-const arrowUpSidebar = document.querySelector(".arrow-up-sidebar");
-const arrowDropdownCompanySidebar = document.querySelector(
-  ".arrow-dropdown-company-sidebar"
-);
-const arrowDownCompanySidebar = document.querySelector(
-  ".arrow-down-company-sidebar"
-);
-const arrowUpCompanySidebar = document.querySelector(
-  ".arrow-up-company-sidebar"
-);
-const companyListSidebar = document.querySelector(".company-list-sidebar");
-const featListSidebar = document.querySelector(".feat-list-sidebar");
+function handleMenuClick(el) {
+  el.classList.toggle("show");
+}
 
-menuIcon.onclick = function () {
-  sidebar.classList.toggle("show");
-};
-
-closeMenu.onclick = function () {
-  sidebar.classList.toggle("show");
-};
-
-arrowDropdown.onclick = function () {
+function handleDropDownClick(el) {
   arrowDown.classList.toggle("hidden");
   arrowUp.classList.toggle("hidden");
-  if (companyList.classList.value !== "hidden") {
+  if (
+    el.classList.contains("feat") &&
+    companyList.classList.value !== "hidden"
+  ) {
     companyList.classList.add("hidden");
     arrowDownCompany.classList.remove("hidden");
     arrowUpCompany.classList.add("hidden");
-  }
-  featList.classList.toggle("hidden");
-};
-
-arrowDropdownCompany.onclick = function () {
-  arrowDownCompany.classList.toggle("hidden");
-  arrowUpCompany.classList.toggle("hidden");
-  if (featList.classList.value !== "hidden") {
+    featList.classList.toggle("hidden");
+  } else {
     featList.classList.add("hidden");
     arrowDown.classList.remove("hidden");
     arrowUp.classList.add("hidden");
+    arrowDownCompany.classList.toggle("hidden");
+    arrowUpCompany.classList.toggle("hidden");
+    companyList.classList.toggle("hidden");
   }
-  companyList.classList.toggle("hidden");
-};
+}
 
-// Mobile Sidebar
-arrowDropdownSidebar.onclick = function () {
-  arrowDownSidebar.classList.toggle("hidden");
-  arrowUpSidebar.classList.toggle("hidden");
-  featListSidebar.classList.toggle("hidden");
-};
+menus.forEach((el) =>
+  el.addEventListener("click", () => handleMenuClick(sidebar))
+);
 
-arrowDropdownCompanySidebar.onclick = function () {
-  arrowDownCompanySidebar.classList.toggle("hidden");
-  arrowUpCompanySidebar.classList.toggle("hidden");
-  companyListSidebar.classList.toggle("hidden");
-};
+arrowDownAll.forEach((el) =>
+  el.addEventListener("click", () => handleDropDownClick(el))
+);
+
+// Mobile
+
+const arrowDropdownSidebar = document.querySelectorAll(".arrow-dropdown-s");
+const downUpFeat = document.querySelectorAll(".down-up-feat");
+const downUpComp = document.querySelectorAll(".down-up-comp");
+const featListSidebar = document.querySelector(".feat-list-sidebar");
+const companyListSidebar = document.querySelector(".company-list-sidebar");
+
+function handleArrows(arrowsFeat, arrowsComp, el) {
+  if (el.classList.contains("feat")) {
+    featListSidebar.classList.toggle("hidden");
+    arrowsFeat.forEach((arrow) => arrow.classList.toggle("hidden"));
+  } else {
+    companyListSidebar.classList.toggle("hidden");
+    arrowsComp.forEach((arrow) => arrow.classList.toggle("hidden"));
+  }
+}
+
+arrowDropdownSidebar.forEach((el) =>
+  el.addEventListener("click", () => handleArrows(downUpFeat, downUpComp, el))
+);
